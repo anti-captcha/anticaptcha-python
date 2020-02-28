@@ -1,4 +1,4 @@
-Official <a href="https://anti-captcha.com/">anti-captcha.com</a> library for solving images with text, Recaptcha v2/v3, Funcaptcha and GeeTest.
+Official https://anti-captcha.com/ library for solving images with text, Recaptcha v2/v3, Funcaptcha and GeeTest.
 Anti-Captcha is the most popular and reliable captcha solving service.
 Prices for solving captchas start from $0.0005 per item.
 
