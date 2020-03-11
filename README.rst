@@ -6,9 +6,7 @@ Python 3:
 
 >>> pip3 install anticaptchaofficial
 
-Python 2:
-
->>> pip install anticaptchaofficial==1.0.22
+Python 2 not supported
 
 .. code:: python
 

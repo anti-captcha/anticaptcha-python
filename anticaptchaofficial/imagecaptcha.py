@@ -1,4 +1,4 @@
-from antinetworking import *
+from anticaptchaofficial.antinetworking import *
 from base64 import b64encode
 
 class imagecaptcha(antiNetworking):

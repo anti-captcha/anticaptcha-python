@@ -8,8 +8,8 @@ solver.set_gt_key("CONSTANT_GT_KEY")
 solver.set_challenge_key("VARIABLE_CHALLENGE_KEY")
 token = solver.solve_and_return_solution()
 if token != 0:
-    print "result tokens: "
-    print token
+    print("result tokens: ")
+    print(token)
 else:
-    print "task finished with error "+solver.error_code
+    print("task finished with error "+solver.error_code)
 

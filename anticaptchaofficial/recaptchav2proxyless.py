@@ -1,4 +1,4 @@
-from antinetworking import *
+from anticaptchaofficial.antinetworking import *
 import time
 
 

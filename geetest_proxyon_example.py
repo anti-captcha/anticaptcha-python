@@ -14,8 +14,8 @@ solver.set_user_agent("Mozilla/5.0")
 
 token = solver.solve_and_return_solution()
 if token != 0:
-    print "result tokens: "
-    print token
+    print("result tokens: ")
+    print(token)
 else:
-    print "task finished with error "+solver.error_code
+    print("task finished with error "+solver.error_code)
 

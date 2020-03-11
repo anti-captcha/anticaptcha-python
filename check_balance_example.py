@@ -4,4 +4,4 @@ solver = recaptchaV2Proxyless()
 solver.set_verbose(1)
 solver.set_key("ACCOUNT_KEY")
 
-print "account balance: " + str(solver.get_balance())
+print("account balance: " + str(solver.get_balance()))

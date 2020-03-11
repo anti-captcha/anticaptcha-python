@@ -14,7 +14,7 @@ solver.set_cookies("test=true")
 
 g_response = solver.solve_and_return_solution()
 if g_response != 0:
-    print "g-response: "+g_response
+    print("g-response: "+g_response)
 else:
-    print "task finished with error "+solver.error_code
+    print("task finished with error "+solver.error_code)
 
