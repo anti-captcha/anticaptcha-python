@@ -20,9 +20,9 @@ Python 2 not supported
 
     g_response = solver.solve_and_return_solution()
     if g_response != 0:
-        print "g-response: "+g_response
+        print("g-response: "+g_response)
     else:
-        print "task finished with error "+solver.error_code
+        print("task finished with error "+solver.error_code)
 
 
 Check out examples for other captcha types
