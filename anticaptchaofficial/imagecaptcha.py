@@ -3,15 +3,17 @@ from base64 import b64encode
 
 class imagecaptcha(antiNetworking):
 
-    def solve_and_return_solution(self, file_path):
+    def solve_and_return_solution(self, file_path, **kwargs):
         img = open(file_path, 'rb')
         img_str = b64encode(img.read()).decode('ascii')
+        task_data = {
+            "type": "ImageToTextTask",
+            "body": img_str
+        }
+        task_data.update(kwargs)
         if self.create_task({
             "clientKey": self.client_key,
-            "task": {
-                "type": "ImageToTextTask",
-                "body": img_str
-            }
+            "task": task_data
         }) == 1:
             self.log("created task with id "+str(self.task_id))
         else:
