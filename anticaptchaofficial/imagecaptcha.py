@@ -9,6 +9,12 @@ class imagecaptcha(antiNetworking):
         task_data = {
             "type": "ImageToTextTask",
             "body": img_str
+            "phrase": self.phrase,
+            "case": self.case,
+            "numeric": self.numeric,
+            "math": self.math,
+            "minLength": self.minLength,
+            "maxLength": self.maxLength
         }
         task_data.update(kwargs)
         if self.create_task({
