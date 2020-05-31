@@ -154,7 +154,7 @@ class antiNetworking:
 
     def log(self, msg):
         if self.is_verbose:
-            print msg
+            print(msg)
 
     def get_time_stamp(self):
         return int((datetime.utcnow() - datetime(1970, 1, 1)).total_seconds())
