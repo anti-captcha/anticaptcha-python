@@ -8,13 +8,13 @@ class imagecaptcha(antiNetworking):
         img_str = b64encode(img.read()).decode('ascii')
         task_data = {
             "type": "ImageToTextTask",
-            "body": img_str
+            "body": img_str,
             "phrase": self.phrase,
             "case": self.case,
             "numeric": self.numeric,
             "math": self.math,
             "minLength": self.minLength,
-            "maxLength": self.maxLength
+            "maxLength": self.maxLength,
         }
         task_data.update(kwargs)
         if self.create_task({
