@@ -28,6 +28,13 @@ class antiNetworking:
     err_string = ""
     task_id = 0
     error_code = ""
+    
+    phrase = False
+    case = False
+    numeric = 0
+    math = False
+    minLength = 0
+    maxLength = 0
 
     def get_balance(self):
         result = self.make_request("getBalance", {"clientKey": self.client_key})
@@ -147,8 +154,25 @@ class antiNetworking:
 
     def log(self, msg):
         if self.is_verbose:
-            print msg
+            print(msg)
 
     def get_time_stamp(self):
         return int((datetime.utcnow() - datetime(1970, 1, 1)).total_seconds())
 
+    def set_phrase(self, value):
+        self.phrase = value
+        
+    def set_case(self, value):
+        self.case = value
+        
+    def set_numeric(self, value):
+        self.numeric = value
+        
+    def set_math(self, value):
+        self.math = value
+
+    def set_minLength(self, value):
+        self.minLength = value  
+
+    def set_maxLength(self, value):
+        self.maxLength = value
