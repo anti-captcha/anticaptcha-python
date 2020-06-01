@@ -11,7 +11,8 @@ class recaptchaV2Proxyless(antiNetworking):
                 "type": "NoCaptchaTaskProxyless",
                 "websiteURL": self.website_url,
                 "websiteKey": self.website_key,
-                "websiteSToken": self.website_stoken
+                "websiteSToken": self.website_stoken,
+                "recaptchaDataSValue": self.recaptcha_data_s
             }
         }) == 1:
             self.log("created task with id "+str(self.task_id))

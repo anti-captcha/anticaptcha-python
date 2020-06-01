@@ -16,6 +16,7 @@ class antiNetworking:
     website_url = ""
     website_key = ""
     website_stoken = ""
+    recaptcha_data_s = ""
     proxy_type = "http"
     proxy_address = ""
     proxy_port = 0
@@ -127,6 +128,9 @@ class antiNetworking:
 
     def set_website_stoken(self, value):
         self.website_stoken = value
+
+    def set_data_s(self, value):
+        self.recaptcha_data_s = value;
 
     def set_proxy_type(self, value):
         self.proxy_type = value

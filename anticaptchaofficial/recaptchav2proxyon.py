@@ -12,6 +12,7 @@ class recaptchaV2Proxyon(antiNetworking):
                 "websiteURL": self.website_url,
                 "websiteKey": self.website_key,
                 "websiteSToken": self.website_stoken,
+                "recaptchaDataSValue": self.recaptcha_data_s,
                 "proxyType": self.proxy_type,
                 "proxyAddress": self.proxy_address,
                 "proxyPort": self.proxy_port,
