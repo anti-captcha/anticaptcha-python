@@ -36,6 +36,7 @@ class antiNetworking:
     math = False
     minLength = 0
     maxLength = 0
+    comment = False
 
     def get_balance(self):
         result = self.make_request("getBalance", {"clientKey": self.client_key})
@@ -180,3 +181,6 @@ class antiNetworking:
 
     def set_maxLength(self, value):
         self.maxLength = value
+
+    def set_comment(self, value):
+        self.comment = value
