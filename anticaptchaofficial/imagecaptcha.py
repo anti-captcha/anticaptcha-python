@@ -15,6 +15,7 @@ class imagecaptcha(antiNetworking):
             "math": self.math,
             "minLength": self.minLength,
             "maxLength": self.maxLength,
+            "comment": self.comment
         }
         task_data.update(kwargs)
         if self.create_task({
