@@ -17,6 +17,7 @@ class antiNetworking:
     website_key = ""
     website_stoken = ""
     recaptcha_data_s = ""
+    recaptcha_enterprise_payload = None
     proxy_type = "http"
     proxy_address = ""
     proxy_port = 0
@@ -131,6 +132,9 @@ class antiNetworking:
 
     def set_data_s(self, value):
         self.recaptcha_data_s = value;
+
+    def set_enterprise_payload(self, value):
+        self.recaptcha_enterprise_payload = value;
 
     def set_proxy_type(self, value):
         self.proxy_type = value

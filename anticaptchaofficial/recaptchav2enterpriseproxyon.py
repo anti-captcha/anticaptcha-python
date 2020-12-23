@@ -2,17 +2,23 @@ from anticaptchaofficial.antinetworking import *
 import time
 
 
-class recaptchaV2Proxyless(antiNetworking):
+class recaptchaV2EnterpriseProxyon(antiNetworking):
 
     def solve_and_return_solution(self):
         if self.create_task({
             "clientKey": self.client_key,
             "task": {
-                "type": "RecaptchaV2TaskProxyless",
+                "type": "RecaptchaV2EnterpriseTask",
                 "websiteURL": self.website_url,
                 "websiteKey": self.website_key,
-                "websiteSToken": self.website_stoken,
-                "recaptchaDataSValue": self.recaptcha_data_s
+                "enterprisePayload": self.recaptcha_enterprise_payload,
+                "proxyType": self.proxy_type,
+                "proxyAddress": self.proxy_address,
+                "proxyPort": self.proxy_port,
+                "proxyLogin": self.proxy_login,
+                "proxyPassword": self.proxy_password,
+                "userAgent": self.user_agent,
+                "cookies": self.cookies
             }
         }) == 1:
             self.log("created task with id "+str(self.task_id))

@@ -8,7 +8,7 @@ class recaptchaV2Proxyon(antiNetworking):
         if self.create_task({
             "clientKey": self.client_key,
             "task": {
-                "type": "NoCaptchaTask",
+                "type": "RecaptchaV2Task",
                 "websiteURL": self.website_url,
                 "websiteKey": self.website_key,
                 "websiteSToken": self.website_stoken,
