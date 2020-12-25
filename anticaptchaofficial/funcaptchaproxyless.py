@@ -34,5 +34,8 @@ class funcaptchaProxyless(antiNetworking):
     def set_js_api_domain(self, value):
         self.js_api_domain = value
 
+    def set_data_blob(self, value):
+        self.data_blob = value
+
 
 
