@@ -5,6 +5,7 @@ import time
 class funcaptchaProxyon(antiNetworking):
 
     js_api_domain = ""
+    data_blob = ""
 
     def solve_and_return_solution(self):
         if self.create_task({
@@ -13,6 +14,7 @@ class funcaptchaProxyon(antiNetworking):
                 "type": "FunCaptchaTask",
                 "websiteURL": self.website_url,
                 "funcaptchaApiJSSubdomain": self.js_api_domain,
+                "data": self.data_blob,
                 "websitePublicKey": self.website_key,
                 "proxyType": self.proxy_type,
                 "proxyAddress": self.proxy_address,
@@ -37,6 +39,9 @@ class funcaptchaProxyon(antiNetworking):
 
     def set_js_api_domain(self, value):
         self.js_api_domain = value
+
+    def set_data_blob(self, value):
+        self.data_blob = value
 
 
 

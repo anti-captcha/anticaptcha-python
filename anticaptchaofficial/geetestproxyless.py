@@ -7,6 +7,7 @@ class geetestProxyless(antiNetworking):
     js_api_domain = ""
     gt = ""
     challenge = ""
+    geetest_lib = ""
 
     def solve_and_return_solution(self):
         if self.create_task({
@@ -16,7 +17,8 @@ class geetestProxyless(antiNetworking):
                 "websiteURL": self.website_url,
                 "gt": self.gt,
                 "challenge": self.challenge,
-                "geetestApiServerSubdomain": self.js_api_domain
+                "geetestApiServerSubdomain": self.js_api_domain,
+                "geetestGetLib": self.geetest_lib
             }
         }) == 1:
             self.log("created task with id "+str(self.task_id))
@@ -40,6 +42,9 @@ class geetestProxyless(antiNetworking):
 
     def set_js_api_domain(self, value):
         self.js_api_domain = value
+
+    def set_geetest_lib(self, value):
+        self.geetest_lib = value
 
 
 

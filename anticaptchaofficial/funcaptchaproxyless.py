@@ -5,6 +5,7 @@ import time
 class funcaptchaProxyless(antiNetworking):
 
     js_api_domain = ""
+    data_blob = ""
 
     def solve_and_return_solution(self):
         if self.create_task({
@@ -13,6 +14,7 @@ class funcaptchaProxyless(antiNetworking):
                 "type": "FunCaptchaTaskProxyless",
                 "websiteURL": self.website_url,
                 "funcaptchaApiJSSubdomain": self.js_api_domain,
+                "data": self.data_blob,
                 "websitePublicKey": self.website_key
             }
         }) == 1:

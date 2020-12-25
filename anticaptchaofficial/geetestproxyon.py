@@ -7,6 +7,7 @@ class geetestProxyon(antiNetworking):
     js_api_domain = ""
     gt = ""
     challenge = ""
+    geetest_lib = ""
 
     def solve_and_return_solution(self):
         if self.create_task({
@@ -17,6 +18,7 @@ class geetestProxyon(antiNetworking):
                 "gt": self.gt,
                 "challenge": self.challenge,
                 "geetestApiServerSubdomain": self.js_api_domain,
+                "geetestGetLib": self.geetest_lib,
                 "proxyType": self.proxy_type,
                 "proxyAddress": self.proxy_address,
                 "proxyPort": self.proxy_port,
@@ -46,6 +48,9 @@ class geetestProxyon(antiNetworking):
 
     def set_js_api_domain(self, value):
         self.js_api_domain = value
+
+    def set_geetest_lib(self, value):
+        self.geetest_lib = value
 
 
 
