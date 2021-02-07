@@ -85,7 +85,23 @@ class antiNetworking:
                 self.log(self.err_string)
                 return 0
 
-    # def wait_for_result(self):
+    def report_incorrect_image_captcha(self):
+        return self.make_request("reportIncorrectImageCaptcha", {
+            "clientKey": self.client_key,
+            "taskId": self.task_id
+        })
+
+    def report_incorrect_recaptcha(self):
+        return self.make_request("reportIncorrectRecaptcha", {
+            "clientKey": self.client_key,
+            "taskId": self.task_id
+        })
+
+    def report_correct_recaptcha(self):
+        return self.make_request("reportCorrectRecaptcha", {
+            "clientKey": self.client_key,
+            "taskId": self.task_id
+        })
 
     def make_request(self, method, data):
         self.log("making request to "+method)

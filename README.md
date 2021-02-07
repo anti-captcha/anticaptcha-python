@@ -31,6 +31,14 @@ if g_response != 0:
 else:
     print "task finished with error "+solver.error_code
 ```
+Report previosly solved Recaptcha V2/V3/Enterprise as incorrect:
+```python
+solver.report_incorrect_recaptcha()
+```
+Report it as correct to improve your quality:
+```python
+solver.report_correct_recaptcha()
+```
 ___
 
 Solve image captcha:
@@ -47,6 +55,10 @@ if captcha_text != 0:
     print("captcha text "+captcha_text)
 else:
     print("task finished with error "+solver.error_code)
+```
+Report previosly solved image captcha as incorrect:
+```python
+solver.report_incorrect_image_captcha()
 ```
 ___
 
