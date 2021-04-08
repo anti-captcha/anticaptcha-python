@@ -6,6 +6,7 @@ class imagecaptcha(antiNetworking):
     def solve_and_return_solution(self, file_path, **kwargs):
         img = open(file_path, 'rb')
         img_str = b64encode(img.read()).decode('ascii')
+        img.close()
         task_data = {
             "type": "ImageToTextTask",
             "body": img_str,
