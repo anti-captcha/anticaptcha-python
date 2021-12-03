@@ -5,15 +5,18 @@ import time
 class recaptchaV2Proxyless(antiNetworking):
 
     def solve_and_return_solution(self):
+        task = {
+            "type": "RecaptchaV2TaskProxyless",
+            "websiteURL": self.website_url,
+            "websiteKey": self.website_key,
+            "websiteSToken": self.website_stoken,
+            "recaptchaDataSValue": self.recaptcha_data_s
+        }
+        if self.is_invisible:
+            task['isInvisible'] = True
         if self.create_task({
             "clientKey": self.client_key,
-            "task": {
-                "type": "RecaptchaV2TaskProxyless",
-                "websiteURL": self.website_url,
-                "websiteKey": self.website_key,
-                "websiteSToken": self.website_stoken,
-                "recaptchaDataSValue": self.recaptcha_data_s
-            }
+            "task": task
         }) == 1:
             self.log("created task with id "+str(self.task_id))
         else:
