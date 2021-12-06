@@ -141,14 +141,14 @@ from anticaptchaofficial.antigatetask import *
 solver = antigateTask()
 solver.set_verbose(1)
 solver.set_key("YOUR_KEY")
-solver.set_website_url("https://anti-captcha.com/tutorials/v2-textarea")
+solver.set_website_url("http://antigate.com/logintest.php")
 solver.set_template_name("Sign-in and wait for control text")
 solver.set_variables({
     "login_input_css": "#login",
     "login_input_value": "test login",
     "password_input_css": "#password",
     "password_input_value": "test password",
-    "control_text": "Test passed with"
+    "control_text": "You have been logged successfully"
 })
 
 result  = solver.solve_and_return_solution()
