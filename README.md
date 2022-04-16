@@ -1,7 +1,7 @@
 anticaptchaofficial
 ===================
 
-Official https://anti-captcha.com/ library for solving images with text, Recaptcha v2/v3 Enterprise/non-Enterprise, Funcaptcha Arcoselabs, GeeTest and hCaptcha.
+Official https://anti-captcha.com/ library for solving images with text, Recaptcha v2/v3 Enterprise or non-Enterprise, Funcaptcha Arcoselabs, GeeTest and hCaptcha Enterprise or non-Enterprise.
 Anti-Captcha is the most popular and reliable captcha solving service, working since 2007.
 Prices for solving captchas start from $0.0005 per item.
 
@@ -144,6 +144,34 @@ solver.set_verbose(1)
 solver.set_key("YOUR_KEY")
 solver.set_website_url("https://website.com")
 solver.set_website_key("SITE_KEY")
+solver.set_user_agent("YOUR FULL USER AGENT HERE")
+
+g_response = solver.solve_and_return_solution()
+if g_response != 0:
+    print("g-response: "+g_response)
+else:
+    print("task finished with error "+solver.error_code)
+```
+___
+
+&nbsp;
+
+Solve [HCaptcha Enterprise](https://anti-captcha.com/apidoc/task-types/HCaptchaTask):
+
+```python
+from anticaptchaofficial.hcaptchaproxyless import *
+
+solver = hCaptchaProxyless()
+solver.set_verbose(1)
+solver.set_key("YOUR_KEY")
+solver.set_website_url("https://website.com")
+solver.set_website_key("SITE_KEY")
+solver.set_user_agent("YOUR FULL USER AGENT HERE")
+# set here parameters like rqdata, sentry, apiEndpoint, endpoint, reportapi, assethost, imghost
+solver.set_enterprise_payload({
+    "rqdata": "rq data value from target website",
+    "sentry": True
+})
 
 g_response = solver.solve_and_return_solution()
 if g_response != 0:

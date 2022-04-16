@@ -17,7 +17,8 @@ class hCaptchaProxyon(antiNetworking):
                 "proxyLogin": self.proxy_login,
                 "proxyPassword": self.proxy_password,
                 "userAgent": self.user_agent,
-                "cookies": self.cookies
+                "cookies": self.cookies,
+                "enterprisePayload": self.recaptcha_enterprise_payload
             }
         }) == 1:
             self.log("created task with id "+str(self.task_id))

@@ -10,7 +10,9 @@ class hCaptchaProxyless(antiNetworking):
             "task": {
                 "type": "HCaptchaTaskProxyless",
                 "websiteURL": self.website_url,
-                "websiteKey": self.website_key
+                "websiteKey": self.website_key,
+                "userAgent": self.user_agent,
+                "enterprisePayload": self.recaptcha_enterprise_payload
             }
         }) == 1:
             self.log("created task with id "+str(self.task_id))
