@@ -18,6 +18,7 @@ class hCaptchaProxyon(antiNetworking):
                 "proxyPassword": self.proxy_password,
                 "userAgent": self.user_agent,
                 "cookies": self.cookies,
+                "isInvisible": self.is_invisible,
                 "enterprisePayload": self.recaptcha_enterprise_payload
             }
         }) == 1:

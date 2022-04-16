@@ -12,6 +12,7 @@ class hCaptchaProxyless(antiNetworking):
                 "websiteURL": self.website_url,
                 "websiteKey": self.website_key,
                 "userAgent": self.user_agent,
+                "isInvisible": self.is_invisible,
                 "enterprisePayload": self.recaptcha_enterprise_payload
             }
         }) == 1:

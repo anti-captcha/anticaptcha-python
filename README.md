@@ -146,6 +146,9 @@ solver.set_website_url("https://website.com")
 solver.set_website_key("SITE_KEY")
 solver.set_user_agent("YOUR FULL USER AGENT HERE")
 
+# tell API that Hcaptcha is invisible
+#solver.set_is_invisible(1)
+
 g_response = solver.solve_and_return_solution()
 if g_response != 0:
     print("g-response: "+g_response)
@@ -167,6 +170,10 @@ solver.set_key("YOUR_KEY")
 solver.set_website_url("https://website.com")
 solver.set_website_key("SITE_KEY")
 solver.set_user_agent("YOUR FULL USER AGENT HERE")
+
+# tell API that Hcaptcha is invisible
+#solver.set_is_invisible(1)
+
 # set here parameters like rqdata, sentry, apiEndpoint, endpoint, reportapi, assethost, imghost
 solver.set_enterprise_payload({
     "rqdata": "rq data value from target website",
