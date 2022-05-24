@@ -6,6 +6,7 @@ class antigateTask(antiNetworking):
 
     template_name = ""
     variables = {}
+    domains_of_interest = []
 
     def push_variable(self, task_id, name, value):
         result = self.make_request("pushAntiGateVariable", {
@@ -30,6 +31,7 @@ class antigateTask(antiNetworking):
                 "websiteURL": self.website_url,
                 "templateName": self.template_name,
                 "variables": self.variables,
+                "domainsOfInterest": self.domains_of_interest,
                 "proxyAddress": self.proxy_address,
                 "proxyPort": self.proxy_port,
                 "proxyLogin": self.proxy_login,
@@ -75,6 +77,9 @@ class antigateTask(antiNetworking):
 
     def set_variables(self, value):
         self.variables = value
+
+    def set_domains_of_interest(self, value):
+        self.domains_of_interest = value
 
 
 

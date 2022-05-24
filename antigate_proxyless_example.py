@@ -12,6 +12,8 @@ solver.set_variables({
     "password_input_value": "test password",
     "control_text": "You have been logged successfully"
 })
+# optional if you want to collect cookies from domains other than task URL
+solver.set_domains_of_interest(['domain1.com', 'domain2.com'])
 
 result  = solver.solve_and_return_solution()
 if result != 0:
