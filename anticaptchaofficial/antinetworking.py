@@ -105,6 +105,12 @@ class antiNetworking:
             "taskId": self.task_id
         })
 
+    def report_incorrect_hcaptcha(self):
+        return self.make_request("reportIncorrectHcaptcha", {
+            "clientKey": self.client_key,
+            "taskId": self.task_id
+        })
+
     def make_request(self, method, data):
         self.log("making request to "+method)
 

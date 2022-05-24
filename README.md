@@ -155,6 +155,10 @@ if g_response != 0:
 else:
     print("task finished with error "+solver.error_code)
 ```
+Report previosly solved Hcaptcha as incorrect:
+```python
+solver.report_incorrect_hcaptcha()
+```
 ___
 
 &nbsp;
