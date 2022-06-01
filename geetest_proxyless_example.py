@@ -7,6 +7,11 @@ solver.set_key("YOUR_API_KEY")
 solver.set_website_url("https://address.com")
 solver.set_gt_key("CONSTANT_GT_KEY")
 solver.set_challenge_key("VARIABLE_CHALLENGE_KEY")
+
+# Specify softId to earn 10% commission with your app.
+# Get your softId here: https://anti-captcha.com/clients/tools/devcenter
+solver.set_soft_id(0)
+
 token = solver.solve_and_return_solution()
 if token != 0:
     print("result tokens: ")

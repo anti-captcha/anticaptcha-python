@@ -28,6 +28,10 @@ solver.set_key("YOUR_API_KEY")
 solver.set_website_url("https://website.com")
 solver.set_website_key("SITE_KEY")
 
+# Specify softId to earn 10% commission with your app.
+# Get your softId here: https://anti-captcha.com/clients/tools/devcenter
+solver.set_soft_id(0)
+
 g_response = solver.solve_and_return_solution()
 if g_response != 0:
     print "g-response: "+g_response
@@ -55,6 +59,10 @@ solver = imagecaptcha()
 solver.set_verbose(1)
 solver.set_key("YOUR_KEY")
 
+# Specify softId to earn 10% commission with your app.
+# Get your softId here: https://anti-captcha.com/clients/tools/devcenter
+solver.set_soft_id(0)
+
 captcha_text = solver.solve_and_return_solution("captcha.jpeg")
 if captcha_text != 0:
     print("captcha text "+captcha_text)
@@ -67,6 +75,38 @@ solver.report_incorrect_image_captcha()
 ```
 ___
 
+&nbsp;
+
+Solve [HCaptcha](https://anti-captcha.com/apidoc/task-types/HCaptchaTask):
+
+```python
+from anticaptchaofficial.hcaptchaproxyless import *
+
+solver = hCaptchaProxyless()
+solver.set_verbose(1)
+solver.set_key("YOUR_KEY")
+solver.set_website_url("https://website.com")
+solver.set_website_key("SITE_KEY")
+solver.set_user_agent("YOUR FULL USER AGENT HERE")
+
+# tell API that Hcaptcha is invisible
+#solver.set_is_invisible(1)
+
+# Specify softId to earn 10% commission with your app.
+# Get your softId here: https://anti-captcha.com/clients/tools/devcenter
+solver.set_soft_id(0)
+
+g_response = solver.solve_and_return_solution()
+if g_response != 0:
+    print("g-response: "+g_response)
+else:
+    print("task finished with error "+solver.error_code)
+```
+Report previosly solved Hcaptcha as incorrect:
+```python
+solver.report_incorrect_hcaptcha()
+```
+___
 &nbsp;
 
 Solve [Funcaptcha](https://anti-captcha.com/apidoc/task-types/FunCaptchaTaskProxyless) (Arkoselabs):
@@ -132,34 +172,6 @@ else:
 ```
 ___
 
-&nbsp;
-
-Solve [HCaptcha](https://anti-captcha.com/apidoc/task-types/HCaptchaTask):
-
-```python
-from anticaptchaofficial.hcaptchaproxyless import *
-
-solver = hCaptchaProxyless()
-solver.set_verbose(1)
-solver.set_key("YOUR_KEY")
-solver.set_website_url("https://website.com")
-solver.set_website_key("SITE_KEY")
-solver.set_user_agent("YOUR FULL USER AGENT HERE")
-
-# tell API that Hcaptcha is invisible
-#solver.set_is_invisible(1)
-
-g_response = solver.solve_and_return_solution()
-if g_response != 0:
-    print("g-response: "+g_response)
-else:
-    print("task finished with error "+solver.error_code)
-```
-Report previosly solved Hcaptcha as incorrect:
-```python
-solver.report_incorrect_hcaptcha()
-```
-___
 
 &nbsp;
 

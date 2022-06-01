@@ -21,7 +21,8 @@ class imagecaptcha(antiNetworking):
         task_data.update(kwargs)
         if self.create_task({
             "clientKey": self.client_key,
-            "task": task_data
+            "task": task_data,
+            "softId": self.soft_id
         }) == 1:
             self.log("created task with id "+str(self.task_id))
         else:

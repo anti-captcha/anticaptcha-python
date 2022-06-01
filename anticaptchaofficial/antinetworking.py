@@ -13,6 +13,7 @@ session.headers.update(default_headers)
 class antiNetworking:
 
     client_key = ""
+    soft_id = 0
     website_url = ""
     website_key = ""
     website_stoken = ""
@@ -144,6 +145,9 @@ class antiNetworking:
 
     def set_key(self, value):
         self.client_key = value
+
+    def set_soft_id(self, value):
+        self.soft_id = value
 
     def set_website_url(self, value):
         self.website_url = value

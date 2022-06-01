@@ -17,7 +17,8 @@ class recaptchaV3EnterpriseProxyless(antiNetworking):
                 "minScore": self.min_score,
                 "pageAction": self.page_action,
                 "isEnterprise": True
-            }
+            },
+            "softId": self.soft_id
         }) == 1:
             self.log("created task with id "+str(self.task_id))
         else:

@@ -36,7 +36,8 @@ class antigateTask(antiNetworking):
                 "proxyPort": self.proxy_port,
                 "proxyLogin": self.proxy_login,
                 "proxyPassword": self.proxy_password
-            }
+            },
+            "softId": self.soft_id
         }) == 1:
             self.log("created task with id "+str(self.task_id))
             return self.task_id
@@ -57,7 +58,8 @@ class antigateTask(antiNetworking):
                 "proxyPort": self.proxy_port,
                 "proxyLogin": self.proxy_login,
                 "proxyPassword": self.proxy_password
-            }
+            },
+            "softId": self.soft_id
         }) == 1:
             self.log("created task with id "+str(self.task_id))
         else:

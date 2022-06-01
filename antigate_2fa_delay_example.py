@@ -16,6 +16,10 @@ solver.set_variables({
     "control_text": "You have been logged successfully"
 })
 
+# Specify softId to earn 10% commission with your app.
+# Get your softId here: https://anti-captcha.com/clients/tools/devcenter
+solver.set_soft_id(0)
+
 task_id  = solver.send_antigate_task()
 if task_id == 0:
     print("could not create task")

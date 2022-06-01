@@ -12,7 +12,8 @@ class recaptchaV2EnterpriseProxyless(antiNetworking):
                 "websiteURL": self.website_url,
                 "websiteKey": self.website_key,
                 "enterprisePayload": self.recaptcha_enterprise_payload
-            }
+            },
+            "softId": self.soft_id
         }) == 1:
             self.log("created task with id "+str(self.task_id))
         else:

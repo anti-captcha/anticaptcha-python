@@ -19,7 +19,8 @@ class recaptchaV2EnterpriseProxyon(antiNetworking):
                 "proxyPassword": self.proxy_password,
                 "userAgent": self.user_agent,
                 "cookies": self.cookies
-            }
+            },
+            "softId": self.soft_id
         }) == 1:
             self.log("created task with id "+str(self.task_id))
         else:

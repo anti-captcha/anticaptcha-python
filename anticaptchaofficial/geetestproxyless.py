@@ -23,7 +23,8 @@ class geetestProxyless(antiNetworking):
                 "geetestGetLib": self.geetest_lib,
                 "version": self.version,
                 "initParameters": self.init_parameters
-            }
+            },
+            "softId": self.soft_id
         }) == 1:
             self.log("created task with id "+str(self.task_id))
         else:

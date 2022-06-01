@@ -20,7 +20,8 @@ class hCaptchaProxyon(antiNetworking):
                 "cookies": self.cookies,
                 "isInvisible": self.is_invisible,
                 "enterprisePayload": self.recaptcha_enterprise_payload
-            }
+            },
+            "softId": self.soft_id
         }) == 1:
             self.log("created task with id "+str(self.task_id))
         else:

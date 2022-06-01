@@ -16,7 +16,8 @@ class funcaptchaProxyless(antiNetworking):
                 "funcaptchaApiJSSubdomain": self.js_api_domain,
                 "data": self.data_blob,
                 "websitePublicKey": self.website_key
-            }
+            },
+            "softId": self.soft_id
         }) == 1:
             self.log("created task with id "+str(self.task_id))
         else:
