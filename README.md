@@ -238,3 +238,10 @@ else:
 ___
 
 Check out [examples](https://github.com/AdminAnticaptcha/anticaptcha-python) for other captcha types
+
+---
+Useful links:
+- [Как решить рекапчу автоматически](https://anti-captcha.com/ru/apidoc/task-types/RecaptchaV2TaskProxyless)
+- [Обход капчи](https://anti-captcha.com/ru/apidoc/task-types/ImageToTextTask)
+- [Cómo resolver un recaptcha automáticamente](https://anti-captcha.com/es/apidoc/task-types/RecaptchaV2TaskProxyless)
+- [Como resolver um recaptcha automaticamente](https://anti-captcha.com/pt/apidoc/task-types/RecaptchaV2TaskProxyless)

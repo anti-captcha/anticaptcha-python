@@ -54,6 +54,7 @@ class antigateTask(antiNetworking):
                 "websiteURL": self.website_url,
                 "templateName": self.template_name,
                 "variables": self.variables,
+                "domainsOfInterest": self.domains_of_interest,
                 "proxyAddress": self.proxy_address,
                 "proxyPort": self.proxy_port,
                 "proxyLogin": self.proxy_login,
