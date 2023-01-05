@@ -262,6 +262,56 @@ else:
 ```
 ___
 
+&nbsp;
+
+Solve [AntiBotCookieTask](https://anti-captcha.com/apidoc/task-types/AntiBotCookieTask) task to bypass Cloudflare or Datadome:
+
+```python
+from anticaptchaofficial.antibotcookietask import *
+
+solver = antibotcookieTask()
+solver.set_verbose(1)
+solver.set_key("YOUR_KEY")
+solver.set_website_url("https://www.somewebsite.com/")
+solver.set_provider_name("cloudflare")
+solver.set_proxy_address("1.2.3.4")
+solver.set_proxy_port(3128)
+solver.set_proxy_login("login")
+solver.set_proxy_password("password")
+
+result = solver.solve_and_return_solution()
+if result == 0:
+    print("could not solve task")
+    exit()
+
+print(result)
+
+cookies, localStorage, fingerprint = result["cookies"], result["localStorage"], result["fingerprint"]
+
+if len(cookies) == 0:
+    print("empty cookies, try again")
+    exit()
+
+cookie_string = '; '.join([f'{key}={value}' for key, value in cookies.items()])
+user_agent = fingerprint['self.navigator.userAgent']
+print(f"use these cookies for requests: {cookie_string}")
+print(f"use this user-agent for requests: {user_agent}")
+
+s = requests.Session()
+proxies = {
+  "http": "http://login:password@1.2.3.4:3128",
+  "https": "http://login:password@1.2.3.4:3128"
+}
+s.proxies = proxies
+
+content = s.get("https://www.somewebsite.com/", headers={
+    "Cookie": cookie_string,
+    "User-Agent": user_agent
+}).text
+print(content)
+```
+___
+
 Check out [examples](https://github.com/AdminAnticaptcha/anticaptcha-python) for other captcha types
 
 ---
