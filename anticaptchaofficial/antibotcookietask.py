@@ -12,7 +12,6 @@ class antibotcookieTask(antiNetworking):
             "task": {
                 "type": "AntiBotCookieTask",
                 "websiteURL": self.website_url,
-                "providerName": self.provider_name,
                 "proxyAddress": self.proxy_address,
                 "proxyPort": self.proxy_port,
                 "proxyLogin": self.proxy_login,
@@ -32,9 +31,6 @@ class antibotcookieTask(antiNetworking):
             return 0
         else:
             return task_result["solution"]
-
-    def set_provider_name(self, value):
-        self.provider_name = value
 
 
 

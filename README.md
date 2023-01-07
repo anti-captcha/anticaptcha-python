@@ -264,7 +264,7 @@ ___
 
 &nbsp;
 
-Solve [AntiBotCookieTask](https://anti-captcha.com/apidoc/task-types/AntiBotCookieTask) task to bypass Cloudflare or Datadome:
+Solve [AntiBotCookieTask](https://anti-captcha.com/apidoc/task-types/AntiBotCookieTask) task to bypass Cloudflare, Datadome and others:
 
 ```python
 from anticaptchaofficial.antibotcookietask import *
@@ -273,7 +273,6 @@ solver = antibotcookieTask()
 solver.set_verbose(1)
 solver.set_key("YOUR_KEY")
 solver.set_website_url("https://www.somewebsite.com/")
-solver.set_provider_name("cloudflare")
 solver.set_proxy_address("1.2.3.4")
 solver.set_proxy_port(3128)
 solver.set_proxy_login("login")
