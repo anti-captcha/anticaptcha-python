@@ -1,4 +1,5 @@
 import requests
+from requests.adapters import HTTPAdapter
 import json
 import urllib3
 from datetime import datetime
@@ -218,3 +219,10 @@ class antiNetworking:
 
     def set_comment(self, value):
         self.comment = value
+
+    def set_poolSize(self, pool_connections, pool_maxsize=100):
+        adapter = HTTPAdapter(
+            pool_connections=pool_connections,
+            pool_maxsize=pool_maxsize
+        )
+        session.mount("https://", adapter)
