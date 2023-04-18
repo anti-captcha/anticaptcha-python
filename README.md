@@ -221,6 +221,9 @@ solver.set_key("YOUR_API_KEY")
 solver.set_website_url("https://website.com")
 solver.set_website_key("SITE_KEY")
 
+# Optionally specify page action
+solver.set_action("login")
+
 # Specify softId to earn 10% commission with your app.
 # Get your softId here: https://anti-captcha.com/clients/tools/devcenter
 solver.set_soft_id(0)

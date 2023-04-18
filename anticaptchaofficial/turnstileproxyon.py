@@ -4,11 +4,17 @@ import time
 
 class turnstileProxyon(antiNetworking):
 
+    action = '';
+
+    def set_action(self, action):
+        self.action = action
+
     def solve_and_return_solution(self):
         task = {
             "type": "TurnstileTask",
             "websiteURL": self.website_url,
             "websiteKey": self.website_key,
+            "action": self.action,
             "proxyType": self.proxy_type,
             "proxyAddress": self.proxy_address,
             "proxyPort": self.proxy_port,
