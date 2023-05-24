@@ -1,12 +1,28 @@
 from anticaptchaofficial.antinetworking import *
 from base64 import b64encode
 
+
 class imagecaptcha(antiNetworking):
 
     def solve_and_return_solution(self, file_path, **kwargs):
-        img = open(file_path, 'rb')
-        img_str = b64encode(img.read()).decode('ascii')
-        img.close()
+        """
+        :param file_path: path to captcha image on disk
+        :param kwargs: contains key-value pairs for updating task_data dict
+        """
+        if file_path is not None:
+            with open(file_path, 'rb') as img:
+                img_str = img.read()
+                img_str = b64encode(img_str).decode('ascii')
+        else:
+            img_str = kwargs.get('body')
+            if type(img_str) is bytes:
+                img_str = b64encode(img_str).decode('ascii')
+                kwargs.update({'body': img_str})
+
+        if file_path is None and img_str is None:
+            self.log("file_path or body (in kwargs) has to be provided")
+            return 0
+
         task_data = {
             "type": "ImageToTextTask",
             "body": img_str,
