@@ -5,15 +5,9 @@ Official https://anti-captcha.com/ library for solving images with text, Recaptc
 Anti-Captcha is the most popular and reliable captcha solving service, working since 2007.
 Prices for solving captchas start from $0.0005 per item.
 
-Python 3:
-
-
 ```bash
 pip3 install anticaptchaofficial
 ```
-
-Python 2 not supported.
-___
 
 &nbsp;
 
@@ -27,6 +21,12 @@ solver.set_verbose(1)
 solver.set_key("YOUR_API_KEY")
 solver.set_website_url("https://website.com")
 solver.set_website_key("SITE_KEY")
+
+# Set True if it is Recaptcha V2-invisible
+#solver.set_is_invisible(True)
+
+# Set data-s value for google.com pages
+#solver.set_data_s('a_long_string_here')
 
 # Specify softId to earn 10% commission with your app.
 # Get your softId here: https://anti-captcha.com/clients/tools/devcenter
