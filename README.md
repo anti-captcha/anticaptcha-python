@@ -10,6 +10,23 @@ pip3 install anticaptchaofficial
 ```
 
 &nbsp;
+Check API key balance before creating tasks:
+```python
+balance = solver.get_balance()
+if balance <= 0:
+    print("too low balance!")
+    return
+```
+&nbsp;
+<br>
+Check subscription credits balance if you have one:
+```python
+credits = solver.get_credits_balance()
+if credits <= 0:
+    print("too low credits balance!")
+    return
+```
+&nbsp;
 
 Example how to create [Recaptcha V2](https://anti-captcha.com/apidoc/task-types/RecaptchaV2TaskProxyless) task and receive g-response:
 

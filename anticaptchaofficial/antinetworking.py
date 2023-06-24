@@ -49,6 +49,13 @@ class antiNetworking:
         else:
             return -1
 
+    def get_credits_balance(self):
+        result = self.make_request("getBalance", {"clientKey": self.client_key})
+        if result != 0 and "captchaCredits" in result:
+            return result["captchaCredits"]
+        else:
+            return -1
+
     def create_task(self, post_data):
         new_task = self.make_request("createTask", post_data)
         if new_task == 0:
