@@ -335,6 +335,35 @@ print(content)
 ```
 ___
 
+&nbsp;
+
+Get [object coordinates](https://anti-captcha.com/apidoc/task-types/ImageCoordinatesTask) in an image:
+
+```python
+from anticaptchaofficial.imagecoordinates import *
+
+solver = imagecoordinates()
+solver.set_verbose(1)
+solver.set_key("YOUR_KEY")
+solver.set_mode("points")
+solver.set_comment("Select in specified order")
+
+# Specify softId to earn 10% commission with your app.
+# Get your softId here: https://anti-captcha.com/clients/tools/devcenter
+solver.set_soft_id(0)
+
+coordinates = solver.solve_and_return_solution("coordinates.png")
+if coordinates != 0:
+    print("coordinates: ", captcha_text)
+else:
+    print("task finished with error "+solver.error_code)
+```
+Report previosly solved captcha as incorrect:
+```python
+solver.report_incorrect_image_captcha()
+```
+___
+
 Check out [examples](https://github.com/AdminAnticaptcha/anticaptcha-python) for other captcha types
 
 ---
