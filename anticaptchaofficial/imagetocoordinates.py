@@ -2,7 +2,7 @@ from anticaptchaofficial.antinetworking import *
 from base64 import b64encode
 
 
-class imagecoordinates(antiNetworking):
+class imagetocoordinates(antiNetworking):
 
     solve_mode = "points"
 
@@ -26,7 +26,7 @@ class imagecoordinates(antiNetworking):
             return 0
 
         task_data = {
-            "type": "ImageCoordinatesTask",
+            "type": "ImageToCoordinatesTask",
             "body": img_str,
             "mode": self.solve_mode,
             "comment": self.comment

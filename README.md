@@ -333,16 +333,16 @@ content = s.get("https://www.somewebsite.com/", headers={
 }).text
 print(content)
 ```
-___
+___[setup.py](..%2Fanticaptcha-publish-package%2Fpackage%2Fsetup.py)
 
 &nbsp;
 
 Get [object coordinates](https://anti-captcha.com/apidoc/task-types/ImageCoordinatesTask) in an image:
 
 ```python
-from anticaptchaofficial.imagecoordinates import *
+from anticaptchaofficial.imagetocoordinates import *
 
-solver = imagecoordinates()
+solver = imagetocoordinates()
 solver.set_verbose(1)
 solver.set_key("YOUR_KEY")
 solver.set_mode("points")
