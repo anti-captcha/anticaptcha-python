@@ -333,7 +333,7 @@ content = s.get("https://www.somewebsite.com/", headers={
 }).text
 print(content)
 ```
-___[setup.py](..%2Fanticaptcha-publish-package%2Fpackage%2Fsetup.py)
+___
 
 &nbsp;
 
