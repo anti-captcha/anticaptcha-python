@@ -241,6 +241,9 @@ solver.set_website_key("SITE_KEY")
 # Optionally specify page action
 solver.set_action("login")
 
+# Optionally specify cData token
+solver.set_action("some_custom_token")
+
 # Specify softId to earn 10% commission with your app.
 # Get your softId here: https://anti-captcha.com/clients/tools/devcenter
 solver.set_soft_id(0)
@@ -364,7 +367,7 @@ solver.report_incorrect_image_captcha()
 ```
 ___
 
-Check out [examples](https://github.com/AdminAnticaptcha/anticaptcha-python) for other captcha types
+Check out [examples](https://github.com/anti-captcha/anticaptcha-python) for other captcha types
 
 ---
 Useful links:

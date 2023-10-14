@@ -4,17 +4,22 @@ import time
 
 class turnstileProxyless(antiNetworking):
 
-    action = '';
+    action = ''
+    cdata = ''
 
     def set_action(self, action):
         self.action = action
+
+    def set_cdata(self, value):
+        self.cdata = value
 
     def solve_and_return_solution(self):
         task = {
             "type": "TurnstileTaskProxyless",
             "websiteURL": self.website_url,
             "websiteKey": self.website_key,
-            "action": self.action
+            "action": self.action,
+            "turnstileCData": self.cdata
         }
         if self.create_task({
             "clientKey": self.client_key,
