@@ -28,6 +28,7 @@ class antiNetworking:
     user_agent = ""
     cookies = ""
     is_invisible = 0
+    is_enterprise = 0
 
     is_verbose = 0
     err_string = ""
@@ -195,6 +196,9 @@ class antiNetworking:
 
     def set_is_invisible(self, value):
         self.is_invisible = value
+
+    def set_is_enterprise(self, value):
+        self.is_enterprise = value
 
     def set_verbose(self, value):
         self.is_verbose = value

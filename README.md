@@ -209,7 +209,10 @@ solver.set_user_agent("YOUR FULL USER AGENT HERE")
 # tell API that Hcaptcha is invisible
 #solver.set_is_invisible(1)
 
-# set here parameters like rqdata, sentry, apiEndpoint, endpoint, reportapi, assethost, imghost
+# tell API that Hcaptcha is Enterprise
+#solver.set_is_enterprise(1)
+
+# set here optional Enterprise parameters like rqdata, sentry, apiEndpoint, endpoint, reportapi, assethost, imghost
 solver.set_enterprise_payload({
     "rqdata": "rq data value from target website",
     "sentry": True
