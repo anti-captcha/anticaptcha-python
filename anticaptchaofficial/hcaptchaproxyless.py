@@ -4,8 +4,13 @@ import time
 
 class hCaptchaProxyless(antiNetworking):
 
+    respkey = ""
+
     def get_user_agent(self):
-        return self.user_agent;
+        return self.user_agent
+
+    def get_respkey(self):
+        return self.respkey
 
     def solve_and_return_solution(self):
         if self.create_task({
@@ -33,4 +38,6 @@ class hCaptchaProxyless(antiNetworking):
         else:
             if "userAgent" in task_result["solution"]:
                 self.user_agent = task_result["solution"]["userAgent"]
+            if "respKey" in task_result["solution"]:
+                self.respkey = task_result["solution"]["respKey"]
             return task_result["solution"]["gRecaptchaResponse"]
