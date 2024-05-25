@@ -118,6 +118,7 @@ if g_response != 0:
     print("g-response: "+g_response)
     # use this user-agent to make requests to your target website
     print("user-agent: "+solver.get_user_agent())
+    print("respkey, if any: ", solver.get_respkey())
 else:
     print("task finished with error "+solver.error_code)
 ```
@@ -222,7 +223,8 @@ g_response = solver.solve_and_return_solution()
 if g_response != 0:
     print("g-response: "+g_response)
     # use this user-agent to make requests to your target website
-    print("user-agent: "+solver.get_user_agent())
+    print("user-agent, use it to post the form: ", solver.get_user_agent())
+    print("respkey, if any: ", solver.get_respkey())
 else:
     print("task finished with error "+solver.error_code)
 ```

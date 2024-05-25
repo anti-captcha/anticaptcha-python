@@ -15,6 +15,7 @@ solver.set_soft_id(0)
 g_response = solver.solve_and_return_solution()
 if g_response != 0:
     print("g-response: "+g_response)
+    print("user-agent, use it to post the form: ", solver.get_user_agent())
     print("respkey, if any: ", solver.get_respkey())
 else:
     print("task finished with error "+solver.error_code)
