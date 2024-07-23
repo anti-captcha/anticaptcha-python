@@ -4,6 +4,11 @@ from base64 import b64encode
 
 class imagecaptcha(antiNetworking):
 
+    language_pool = "en"
+
+    def set_language_pool(self, pool_name):
+        self.language_pool = pool_name
+
     def solve_and_return_solution(self, file_path, **kwargs):
         """
         :param file_path: path to captcha image on disk
@@ -32,7 +37,8 @@ class imagecaptcha(antiNetworking):
             "math": self.math,
             "minLength": self.minLength,
             "maxLength": self.maxLength,
-            "comment": self.comment
+            "comment": self.comment,
+            "languagePool": self.language_pool
         }
         task_data.update(kwargs)
         if self.create_task({
@@ -51,3 +57,5 @@ class imagecaptcha(antiNetworking):
             return 0
         else:
             return task_result["solution"]["text"]
+
+
