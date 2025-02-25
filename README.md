@@ -1,9 +1,25 @@
 anticaptchaofficial
 ===================
 
-Official https://anti-captcha.com/ library for solving images with text, Recaptcha v2/v3 Enterprise or non-Enterprise, Funcaptcha Arcoselabs, GeeTest and hCaptcha Enterprise or non-Enterprise.
+Official https://anti-captcha.com/ library for solving images with text, Recaptcha v2/v3 Enterprise or non-Enterprise, Funcaptcha Arcoselabs, GeeTest and others.
 Anti-Captcha is the most popular and reliable captcha solving service, working since 2007.
-Prices for solving captchas start from $0.0005 per item.
+Prices for solving captchas start from $0.0005 per token.
+
+#### How to solve:
+- [Image captcha](#solve-image-captcha)
+- [Recaptcha v2](#how-to-solve-recaptcha-v2)
+- [Recaptcha V3](#how-to-solve-recaptcha-v3)
+- [Hcaptcha](#solve-hcaptcha)
+- [FunCaptcha Arkoselabs](#solve-funcaptcha-arkoselabs)
+- [Geetest V3](#solve-geetest-v3)
+- [Geetest V4](#solve-geetest-v4)
+- [Turnstile](#solve-turnstile)
+- [Antigate templates](#antigate-template-tasks)
+- [Image to coordinates](#image-to-coordinates)
+- [Prosopo](#prosopo-captcha)
+- [Friendly Captcha](#friendly-captcha)
+
+### Basics
 
 ```bash
 pip3 install anticaptchaofficial
@@ -27,6 +43,34 @@ if credits <= 0:
     return
 ```
 &nbsp;
+
+### [Solve image captcha with python](https://anti-captcha.com/apidoc/task-types/ImageToTextTask)
+
+```python
+from anticaptchaofficial.imagecaptcha import *
+
+solver = imagecaptcha()
+solver.set_verbose(1)
+solver.set_key("YOUR_KEY")
+
+# Specify softId to earn 10% commission with your app.
+# Get your softId here: https://anti-captcha.com/clients/tools/devcenter
+solver.set_soft_id(0)
+
+captcha_text = solver.solve_and_return_solution("captcha.jpeg")
+if captcha_text != 0:
+    print("captcha text "+captcha_text)
+else:
+    print("task finished with error "+solver.error_code)
+```
+Report previosly solved image captcha as incorrect:
+```python
+solver.report_incorrect_image_captcha()
+```
+___
+&nbsp;
+
+### How to solve Recaptcha V2
 
 Example how to create [Recaptcha V2](https://anti-captcha.com/apidoc/task-types/RecaptchaV2TaskProxyless) task and receive g-response:
 
@@ -65,36 +109,38 @@ solver.report_correct_recaptcha()
 ```
 ___
 
-&nbsp;
 
-Solve [image captcha](https://anti-captcha.com/apidoc/task-types/ImageToTextTask):
+### How to solve Recaptcha V3
+
+Example how to create [Recaptcha V3](https://anti-captcha.com/apidoc/task-types/RecaptchaV3TaskProxyless) task and receive g-response:
 
 ```python
-from anticaptchaofficial.imagecaptcha import *
+from anticaptchaofficial.recaptchav3proxyless import *
 
-solver = imagecaptcha()
+solver = recaptchaV2Proxyless()
 solver.set_verbose(1)
-solver.set_key("YOUR_KEY")
+solver.set_key("YOUR_API_KEY")
+solver.set_website_url("https://website.com")
+solver.set_website_key("SITE_KEY")
+solver.set_page_action("home_page")
+solver.set_min_score(0.9)
 
 # Specify softId to earn 10% commission with your app.
 # Get your softId here: https://anti-captcha.com/clients/tools/devcenter
 solver.set_soft_id(0)
 
-captcha_text = solver.solve_and_return_solution("captcha.jpeg")
-if captcha_text != 0:
-    print("captcha text "+captcha_text)
+g_response = solver.solve_and_return_solution()
+if g_response != 0:
+    print "g-response: "+g_response
 else:
-    print("task finished with error "+solver.error_code)
-```
-Report previosly solved image captcha as incorrect:
-```python
-solver.report_incorrect_image_captcha()
+    print "task finished with error "+solver.error_code
 ```
 ___
 
 &nbsp;
+### Solve Hcaptcha
 
-Solve [HCaptcha](https://anti-captcha.com/apidoc/task-types/HCaptchaTask):
+Solve [HCaptcha](https://anti-captcha.com/apidoc/task-types/HCaptchaTask) and receive its token:
 
 ```python
 from anticaptchaofficial.hcaptchaproxyless import *
@@ -129,7 +175,8 @@ solver.report_incorrect_hcaptcha()
 ___
 &nbsp;
 
-Solve [Funcaptcha](https://anti-captcha.com/apidoc/task-types/FunCaptchaTaskProxyless) (Arkoselabs):
+### Solve FunCaptcha Arkoselabs
+Solve [Funcaptcha](https://anti-captcha.com/apidoc/task-types/FunCaptchaTaskProxyless) (Arkoselabs) and receive the token:
 
 ```python
 from anticaptchaofficial.funcaptchaproxyless import *
@@ -150,7 +197,9 @@ ___
 
 &nbsp;
 
-Solve [GeeTest](https://anti-captcha.com/apidoc/task-types/GeeTestTask) captcha:
+### Solve GeeTest v3
+
+Solve [GeeTest](https://anti-captcha.com/apidoc/task-types/GeeTestTask) captcha and receive its token:
 
 ```python
 from anticaptchaofficial.geetestproxyless import *
@@ -172,7 +221,9 @@ ___
 
 &nbsp;
 
-Solve [GeeTest v4](https://anti-captcha.com/apidoc/task-types/GeeTestTask) captcha:
+### Solve Geetest v4
+
+Solve [GeeTest v4](https://anti-captcha.com/apidoc/task-types/GeeTestTask) captcha and receive its token:
 
 ```python
 from anticaptchaofficial.geetestproxyless import *
@@ -192,47 +243,11 @@ else:
 ```
 ___
 
-
 &nbsp;
 
-Solve [HCaptcha Enterprise](https://anti-captcha.com/apidoc/task-types/HCaptchaTask):
+### Solve Turnstile
 
-```python
-from anticaptchaofficial.hcaptchaproxyless import *
-
-solver = hCaptchaProxyless()
-solver.set_verbose(1)
-solver.set_key("YOUR_KEY")
-solver.set_website_url("https://website.com")
-solver.set_website_key("SITE_KEY")
-solver.set_user_agent("YOUR FULL USER AGENT HERE")
-
-# tell API that Hcaptcha is invisible
-#solver.set_is_invisible(1)
-
-# tell API that Hcaptcha is Enterprise
-#solver.set_is_enterprise(1)
-
-# set here optional Enterprise parameters like rqdata, sentry, apiEndpoint, endpoint, reportapi, assethost, imghost
-solver.set_enterprise_payload({
-    "rqdata": "rq data value from target website",
-    "sentry": True
-})
-
-g_response = solver.solve_and_return_solution()
-if g_response != 0:
-    print("g-response: "+g_response)
-    # use this user-agent to make requests to your target website
-    print("user-agent, use it to post the form: ", solver.get_user_agent())
-    print("respkey, if any: ", solver.get_respkey())
-else:
-    print("task finished with error "+solver.error_code)
-```
-___
-
-&nbsp;
-
-Example how to create [Turnstile](https://anti-captcha.com/apidoc/task-types/TurnstileTaskProxyless) task and receive a token:
+Example how to solve [Turnstile](https://anti-captcha.com/apidoc/task-types/TurnstileTaskProxyless) task and receive a token:
 
 ```python
 from anticaptchaofficial.turnstileproxyless import *
@@ -262,6 +277,8 @@ else:
 ___
 
 &nbsp;
+
+### Antigate template tasks
 
 Solve [AntiGate](https://anti-captcha.com/apidoc/task-types/AntiGateTask) task:
 
@@ -345,6 +362,8 @@ ___
 
 &nbsp;
 
+### Image to coordinates
+
 Get [object coordinates](https://anti-captcha.com/apidoc/task-types/ImageCoordinatesTask) in an image:
 
 ```python
@@ -371,6 +390,61 @@ Report previosly solved captcha as incorrect:
 solver.report_incorrect_image_captcha()
 ```
 ___
+
+&nbsp;
+
+### Prosopo captcha
+
+Example how to create [Prosopo](https://anti-captcha.com/apidoc/task-types/ProsopoTaskProxyless) captcha and receive a token:
+
+```python
+from anticaptchaofficial.prosopoproxyless import *
+
+solver = prosopoProxyless()
+solver.set_verbose(1)
+solver.set_key("YOUR_API_KEY")
+solver.set_website_url("https://website.com")
+solver.set_website_key("SITE_KEY")
+
+# Specify softId to earn 10% commission with your app.
+# Get your softId here: https://anti-captcha.com/clients/tools/devcenter
+solver.set_soft_id(0)
+
+token = solver.solve_and_return_solution()
+if token != 0:
+    print "token: "+token
+else:
+    print "task finished with error "+solver.error_code
+```
+___
+
+&nbsp;
+
+### Friendly captcha
+
+Example how to create [Friendly Captcha](https://anti-captcha.com/apidoc/task-types/FriendlyCaptchaTaskProxyless) task and receive a token:
+
+```python
+from anticaptchaofficial.friendlycaptchaproxyless import *
+
+solver = friendlyCaptchaProxyless()
+solver.set_verbose(1)
+solver.set_key("YOUR_API_KEY")
+solver.set_website_url("https://website.com")
+solver.set_website_key("SITE_KEY")
+
+# Specify softId to earn 10% commission with your app.
+# Get your softId here: https://anti-captcha.com/clients/tools/devcenter
+solver.set_soft_id(0)
+
+token = solver.solve_and_return_solution()
+if token != 0:
+    print "token: "+token
+else:
+    print "task finished with error "+solver.error_code
+```
+___
+
 
 Check out [examples](https://github.com/anti-captcha/anticaptcha-python) for other captcha types
 
