@@ -261,9 +261,6 @@ solver.set_website_key("SITE_KEY")
 # Optionally specify page action
 solver.set_action("login")
 
-# Optionally specify page action value 
-solver.set_action("some action")
-
 # Optionally specify cData and chlPageData tokens for Cloudflare pages
 #solver.set_cdata("cdata_token")
 #solver.set_chlpagedata("chlpagedata_token")
