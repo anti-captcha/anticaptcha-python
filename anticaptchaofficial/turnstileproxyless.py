@@ -6,6 +6,7 @@ class turnstileProxyless(antiNetworking):
 
     action = ''
     cdata = ''
+    chlpagedata = ''
 
     def set_action(self, action):
         self.action = action
@@ -13,13 +14,17 @@ class turnstileProxyless(antiNetworking):
     def set_cdata(self, value):
         self.cdata = value
 
+    def set_chlpagedata(self, value):
+        self.chlpagedata = value
+
     def solve_and_return_solution(self):
         task = {
             "type": "TurnstileTaskProxyless",
             "websiteURL": self.website_url,
             "websiteKey": self.website_key,
             "action": self.action,
-            "turnstileCData": self.cdata
+            "cData": self.cdata,
+            "chlPageData": self.chlpagedata
         }
         if self.create_task({
             "clientKey": self.client_key,
