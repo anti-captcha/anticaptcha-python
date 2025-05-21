@@ -18,6 +18,7 @@ Prices for solving captchas start from $0.0005 per token.
 - [Image to coordinates](#image-to-coordinates)
 - [Prosopo](#prosopo-captcha)
 - [Friendly Captcha](#friendly-captcha)
+- [Amazon WAF](#solve-amazon-waf)
 
 ### Basics
 
@@ -275,7 +276,7 @@ if token != 0:
 else:
     print "task finished with error "+solver.error_code
 ```
-___
+____
 
 &nbsp;
 
@@ -445,6 +446,39 @@ else:
     print "task finished with error "+solver.error_code
 ```
 ___
+
+&nbsp;
+
+### Solve Amazon WAF
+
+Example how to solve [Amazon WAF](https://anti-captcha.com/apidoc/task-types/AmazonTaskProxyless) task and receive an aws-was-token:
+
+```python
+from anticaptchaofficial.amazonproxyless import *
+
+solver = amazonProxyless()
+solver.set_verbose(1)
+solver.set_key("YOUR_API_KEY")
+solver.set_website_url("https://website.com")
+solver.set_website_key("key_value_from_window.gokuProps_object")
+solver.set_iv("iv_value_from_window.gokuProps_object")
+solver.set_context("context_value_from_window.gokuProps_object")
+
+# Optional script URLs
+solver.set_captcha_script("https://e9b10f157f38.9a96e8b4.us-gov-west-1.captcha.awswaf.com/e9b10f157f38/76cbcde1c834/2a564e323e7b/captcha.js")
+solver.set_challenge_script("https://e9b10f157f38.9a96e8b4.us-gov-west-1.token.awswaf.com/e9b10f157f38/76cbcde1c834/2a564e323e7b/challenge.js")
+
+# Specify softId to earn 10% commission with your app.
+# Get your softId here: https://anti-captcha.com/clients/tools/devcenter
+solver.set_soft_id(0)
+
+token = solver.solve_and_return_solution()
+if token != 0:
+    print "token: "+token
+else:
+    print "task finished with error "+solver.error_code
+```
+____
 
 
 Check out [examples](https://github.com/anti-captcha/anticaptcha-python) for other captcha types
