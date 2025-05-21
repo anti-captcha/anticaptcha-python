@@ -51,4 +51,4 @@ class amazonProxyon(antiNetworking):
         if task_result == 0:
             return 0
         else:
-            return task_result["solution"]
+            return task_result["solution"]["token"]
