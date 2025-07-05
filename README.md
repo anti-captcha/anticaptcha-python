@@ -451,7 +451,8 @@ ___
 
 ### Solve Amazon WAF
 
-Example how to solve [Amazon WAF](https://anti-captcha.com/apidoc/task-types/AmazonTaskProxyless) task and receive an aws-was-token:
+Two options here:
+1. When captcha is at the bot filtering page and you need aws-was-token cookie:
 
 ```python
 from anticaptchaofficial.amazonproxyless import *
@@ -478,6 +479,27 @@ if token != 0:
 else:
     print "task finished with error "+solver.error_code
 ```
+
+2. When captcha is a standalone widget which is triggered by user's action:
+```python
+from anticaptchaofficial.amazonproxyless import *
+
+solver = amazonProxyless()
+solver.set_verbose(1)
+solver.set_key("YOUR_API_KEY")
+solver.set_website_url("https://website.com")
+solver.set_website_key("Captcha widget's API key from AwsWafCaptcha.renderCaptcha function")
+solver.set_waf_type("widget")
+solver.set_jsapi_script("https://164cb210e333.edge.captcha-sdk.awswaf.com/164cb210e333/jsapi.js")
+
+token = solver.solve_and_return_solution()
+if token != 0:
+    print "token: "+token
+else:
+    print "task finished with error "+solver.error_code
+```
+  
+For more details visit [Anti-Captcha Amazon WAF documentation](https://anti-captcha.com/apidoc/task-types/AmazonTaskProxyless).
 ____
 
 
