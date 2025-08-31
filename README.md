@@ -118,7 +118,7 @@ Example how to create [Recaptcha V3](https://anti-captcha.com/apidoc/task-types/
 ```python
 from anticaptchaofficial.recaptchav3proxyless import *
 
-solver = recaptchaV2Proxyless()
+solver = recaptchaV3Proxyless()
 solver.set_verbose(1)
 solver.set_key("YOUR_API_KEY")
 solver.set_website_url("https://website.com")
