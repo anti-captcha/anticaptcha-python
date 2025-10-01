@@ -19,6 +19,7 @@ Prices for solving captchas start from $0.0005 per token.
 - [Prosopo](#prosopo-captcha)
 - [Friendly Captcha](#friendly-captcha)
 - [Amazon WAF](#solve-amazon-waf)
+- [Altcha](#solve-altcha)
 
 ### Basics
 
@@ -501,6 +502,33 @@ else:
   
 For more details visit [Anti-Captcha Amazon WAF documentation](https://anti-captcha.com/apidoc/task-types/AmazonTaskProxyless).
 ____
+
+
+&nbsp;
+### Solve Altcha
+
+Solve [Altcha](https://anti-captcha.com/apidoc/task-types/AltchaTaskProxyless) and receive its token:
+
+```python
+from anticaptchaofficial.altchaproxyless import *
+
+solver = altchaProxyless()
+solver.set_verbose(1)
+solver.set_key("YOUR_KEY")
+solver.set_website_url("https://website.com")
+solver.set_challenge_url("/path/to/challenge/url")
+
+# Specify softId to earn 10% commission with your app.
+# Get your softId here: https://anti-captcha.com/clients/tools/devcenter
+solver.set_soft_id(0)
+
+token = solver.solve_and_return_solution()
+if token != 0:
+    print("token: "+token)
+else:
+    print("task finished with error "+solver.error_code)
+```
+___
 
 
 Check out [examples](https://github.com/anti-captcha/anticaptcha-python) for other captcha types
