@@ -516,7 +516,10 @@ solver = altchaProxyless()
 solver.set_verbose(1)
 solver.set_key("YOUR_KEY")
 solver.set_website_url("https://website.com")
+# Option 1: set challenge URL
 solver.set_challenge_url("/path/to/challenge/url")
+# Option 2: set challenge JSON grabbed from challenge URL
+#solver.set_challenge_json('{"algorithm":"SHA-256","challenge":"2a40f7ba3393f9513011179de41c7221f14e563856de2f647233a00accf9c28b","salt":"08d7f273d79df143355b9e5n","signature":"1de2bbf282420aef6ca0a84c38c85e2b1e40023d28bef72278d735555a8f47fb"}')
 
 # Specify softId to earn 10% commission with your app.
 # Get your softId here: https://anti-captcha.com/clients/tools/devcenter
