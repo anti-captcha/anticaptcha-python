@@ -5,21 +5,24 @@ import time
 class recaptchaV2EnterpriseProxyon(antiNetworking):
 
     def solve_and_return_solution(self):
+        task = {
+            "type": "RecaptchaV2EnterpriseTask",
+            "websiteURL": self.website_url,
+            "websiteKey": self.website_key,
+            "enterprisePayload": self.recaptcha_enterprise_payload,
+            "proxyType": self.proxy_type,
+            "proxyAddress": self.proxy_address,
+            "proxyPort": self.proxy_port,
+            "proxyLogin": self.proxy_login,
+            "proxyPassword": self.proxy_password,
+            "userAgent": self.user_agent,
+            "cookies": self.cookies
+        }
+        if self.is_invisible:
+            task['isInvisible'] = True
         if self.create_task({
             "clientKey": self.client_key,
-            "task": {
-                "type": "RecaptchaV2EnterpriseTask",
-                "websiteURL": self.website_url,
-                "websiteKey": self.website_key,
-                "enterprisePayload": self.recaptcha_enterprise_payload,
-                "proxyType": self.proxy_type,
-                "proxyAddress": self.proxy_address,
-                "proxyPort": self.proxy_port,
-                "proxyLogin": self.proxy_login,
-                "proxyPassword": self.proxy_password,
-                "userAgent": self.user_agent,
-                "cookies": self.cookies
-            },
+            "task": task,
             "softId": self.soft_id
         }) == 1:
             self.log("created task with id "+str(self.task_id))
